@@ -2,7 +2,7 @@ package ru.netology.domain;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class RadioTest {
 
@@ -15,16 +15,18 @@ class RadioTest {
 
         assertEquals(expected, currentChannel);
     }
+
     @Test
     void goToZeroChannel() {
-        Radio radio = new Radio();
-        radio.setChannel(9);
+        Radio radio = new Radio(100);
+        radio.setChannel(99);
         radio.nextChannel();
         int currentChannel = radio.getChannel();
         int expected = 0;
 
         assertEquals(expected, currentChannel);
     }
+
     @Test
     void overMaxChannel() {
         Radio radio = new Radio();
@@ -34,6 +36,7 @@ class RadioTest {
 
         assertEquals(expected, currentChannel);
     }
+
     @Test
     void underMinChannel() {
         Radio radio = new Radio();
@@ -43,6 +46,7 @@ class RadioTest {
 
         assertEquals(expected, currentChannel);
     }
+
     @Test
     void previousChannel() {
         Radio radio = new Radio();
@@ -53,6 +57,7 @@ class RadioTest {
 
         assertEquals(expected, currentChannel);
     }
+
     @Test
     void goToNineChannel() {
         Radio radio = new Radio();
@@ -62,6 +67,7 @@ class RadioTest {
 
         assertEquals(expected, currentChannel);
     }
+
     @Test
     void increaseVolume() {
         Radio radio = new Radio();
@@ -71,6 +77,7 @@ class RadioTest {
 
         assertEquals(expected, currentVolume);
     }
+
     @Test
     void decreaseVolume() {
         Radio radio = new Radio();
@@ -81,25 +88,28 @@ class RadioTest {
 
         assertEquals(expected, currentVolume);
     }
+
     @Test
     void checkMaxVolume() {
         Radio radio = new Radio();
-        radio.setVolume(10);
+        radio.setVolume(100);
         radio.increaseVolume();
         int currentVolume = radio.getVolume();
-        int expected = 10;
+        int expected = 100;
 
         assertEquals(expected, currentVolume);
     }
+
     @Test
     void checkOverMaxVolume() {
         Radio radio = new Radio();
-        radio.setVolume(11);
+        radio.setVolume(101);
         int currentVolume = radio.getVolume();
         int expected = 0;
 
         assertEquals(expected, currentVolume);
     }
+
     @Test
     void checkUnderMinVolume() {
         Radio radio = new Radio();
@@ -120,7 +130,6 @@ class RadioTest {
 
         assertEquals(expected, currentVolume);
     }
-
 
 
 }
